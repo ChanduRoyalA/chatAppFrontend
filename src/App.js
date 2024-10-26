@@ -1,23 +1,30 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
+import { io } from "socket.io-client";
 
+// const socket = io("http://localhost:4000", {
+//   withCredentials: true
+// });
 function App() {
+  const [msg, setMsg] = useState('')
+  // useEffect(() => {
+  //   // Listen for messages from the server (relayed from another client)
+  //   socket.on('connection', (data) => {
+  //     setMsg(data)
+  //   });
+  //   const userObj = {
+  //     userName: "User1"
+  //   }
+  //   socket.emit('sendconnection', userObj);
+
+  //   // Cleanup event listeners when component unmounts
+  //   return () => {
+  //     // socket.disconnect()
+  //   };
+  // }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>{msg}</h1>
     </div>
   );
 }
