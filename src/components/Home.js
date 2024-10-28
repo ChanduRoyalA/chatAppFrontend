@@ -40,6 +40,7 @@ function Home() {
 
     return (
         <div>
+            <h1>{Cookies.get('token')}</h1>
             <nav className='px-5 py-4 flex justify-end'><button className='mr-3 bg-red-500 text-white px-4 py-1 rounded' onClick={logout}>Logout</button></nav>
             <div>
                 <AllContancts socket={socket} />

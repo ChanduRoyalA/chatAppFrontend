@@ -35,11 +35,32 @@ const Login = () => {
     };
 
     return (
-        <div>
-            <input onChange={(e) => { setName(e.target.value) }} value={name} type='text' placeholder='name' />
-            <input onChange={(e) => { setPassword(e.target.value) }} value={password} type='password' placeholder='password' />
-            <button onClick={login}>Login</button>
+        <div className="flex items-center justify-center min-h-screen bg-white">
+            <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-lg">
+                <h2 className="text-2xl font-bold text-center text-green-600">Login</h2>
+                <input
+                    onChange={(e) => { setName(e.target.value); }}
+                    value={name}
+                    type="text"
+                    placeholder="Name"
+                    className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                />
+                <input
+                    onChange={(e) => { setPassword(e.target.value); }}
+                    value={password}
+                    type="password"
+                    placeholder="Password"
+                    className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                />
+                <button
+                    onClick={login}
+                    className="w-full px-4 py-2 font-semibold text-white bg-green-600 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+                >
+                    Login
+                </button>
+            </div>
         </div>
+
     );
 };
 

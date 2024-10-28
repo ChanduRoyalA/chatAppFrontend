@@ -62,9 +62,6 @@ const AllContacts = (props) => {
             <div className="col-span-3 bg-green-50 p-6 flex flex-col">
                 {UserToChat ? (
                     <div className="flex flex-col h-full ">
-                        {/* <div className="px-4 py-2 bg-green-600 text-white font-semibold rounded-t-lg">
-                            Chat with {UserToChat}
-                        </div> */}
                         <div className="flex-grow p-4 overflow-y-auto">
                             <Chat name={UserToChat} socket={socket} />
                         </div>
