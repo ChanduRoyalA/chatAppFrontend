@@ -1,32 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import './App.css';
-import { io } from "socket.io-client";
+// App.js
+import React from 'react';
+import './App.css'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Home from './components/Home';
+import Login from './components/Login';
 
-// const socket = io("http://localhost:4000", {
-//   withCredentials: true
-// });
-function App() {
-  const [msg, setMsg] = useState('')
-  // useEffect(() => {
-  //   // Listen for messages from the server (relayed from another client)
-  //   socket.on('connection', (data) => {
-  //     setMsg(data)
-  //   });
-  //   const userObj = {
-  //     userName: "User1"
-  //   }
-  //   socket.emit('sendconnection', userObj);
-
-  //   // Cleanup event listeners when component unmounts
-  //   return () => {
-  //     // socket.disconnect()
-  //   };
-  // }, []);
+const App = () => {
   return (
-    <div className="App">
-      <h1>{msg}</h1>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
