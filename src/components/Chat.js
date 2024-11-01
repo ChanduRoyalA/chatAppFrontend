@@ -9,12 +9,11 @@ const Chat = (props) => {
     const userToken = Cookies.get('token');
 
     useEffect(() => {
-        // Set up the listener for receiving messages
         const handleMessage = (message) => {
             if (message.error) {
                 return;
             }
-            console.log("Received message:", message);
+            // console.log("Received message:", message);
             if (message && message.msg) {
                 setMessages((prevMessages) => [
                     ...prevMessages,
@@ -22,6 +21,8 @@ const Chat = (props) => {
                 ]);
             }
         };
+
+
 
         socket.on('receiveMsg', handleMessage);
 
@@ -33,7 +34,7 @@ const Chat = (props) => {
         // Clean up listeners when the component unmounts
         return () => {
             socket.off('receiveMsg', handleMessage);
-            socket.off('errorSendingMsg'); // Clean up the error listener
+            socket.off('errorSendingMsg');
         };
     }, [socket]);
 
@@ -64,12 +65,7 @@ const Chat = (props) => {
     return (
         <div className="flex flex-col h-full bg-white rounded-lg shadow-md overflow-hidden">
             <Toaster />
-            {/* Header */}
-            <div className="px-4 py-2 bg-green-600 text-white font-semibold text-lg">
-                {name}
-            </div>
-
-            {/* Messages Display Area */}
+            <div className="px-4 py-2 bg-green-600 text-white font-semibold text-lg">{name}</div>
             <div className="flex-grow py-4 px-2 overflow-y-auto space-y-2">
                 {messages.map((message, index) => (
                     <div
@@ -86,8 +82,6 @@ const Chat = (props) => {
                     </div>
                 ))}
             </div>
-
-            {/* Message Input Area */}
             <div className="flex items-center border-t border-gray-200 p-2">
                 <input
                     type='text'
